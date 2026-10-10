@@ -1,0 +1,24 @@
+//pin16
+const int motor1 = 16;
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(motor1, OUTPUT);
+  digitalWrite(16, HIGH);
+  analogWrite(motor1, 0);
+  delay(2000);
+}
+//motor test on/off
+void loop() {
+  for (int vel = 0; vel <= 255; vel += 5) {
+    analogWrite(motor1, vel);
+    delay(40);
+  }
+  delay(6000);
+
+  for (int vel = 255; vel >= 0; vel -= 5) {
+    analogWrite(motor1, vel);
+    delay(40);
+  }
+  delay(3000);
+}
